@@ -35,8 +35,6 @@ $cfg['Servers'][$i]['compress'] = false;
 /* Select mysqli if your server has it */
 $cfg['Servers'][$i]['extension'] = 'mysql';
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
-$cfg['Servers'][$i]['user'] = 'jacqueline';
-$cfg['Servers'][$i]['password'] = 'E2U35tk0';
 
 /*
  * phpMyAdmin configuration storage settings.
