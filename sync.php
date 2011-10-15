@@ -4,10 +4,10 @@ $mysql_user="root";
 $mysql_pass="";
 $mysql_db="vkbullshit.my";*/
 echo "here4";
-$mysql_host=$_SERVER['mysql_host'];
-$mysql_user=$_SERVER['mysql_user'];
-$mysql_pass=$_SERVER['mysql_pass'];
-$mysql_db=$_SERVER['mysql_db'];
+$mysql_host=$_SERVER['MYSQL_HOST'];
+$mysql_user=$_SERVER['MYSQL_USER'];
+$mysql_pass=$_SERVER['MYSQL_PASS'];
+$mysql_db=$_SERVER['MYSQL_DB'];
 $data=json_decode($_POST["data"]);
 $task=$_POST["task"];
 ///
