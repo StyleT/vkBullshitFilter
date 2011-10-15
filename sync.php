@@ -1,4 +1,5 @@
 <?php
+error_reporting (E_ALL ^ E_NOTICE);
 /*$mysql_host="localhost";
 $mysql_user="root";
 $mysql_pass="";
