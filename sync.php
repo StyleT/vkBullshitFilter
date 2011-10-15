@@ -30,21 +30,27 @@ function mysql_fetch_all($res) {//Возвращает массив ассоци
    return $return;
 }
 function fullSync($data){
-	//Строим запрос добавления записей в БД
-	$query="INSERT IGNORE INTO `blacklist` (`link`) VALUES ";
-	for($i=0; $i<count($data); $i++){
-		if($i!=0)
-			$query.=", ";
-		$query.="('".$data[$i]->link."')";
+	if(count($data)>0){
+		//Строим запрос добавления записей в БД
+		$query="INSERT IGNORE INTO `blacklist` (`link`) VALUES ";
+		for($i=0; $i<count($data); $i++){
+			if($i!=0)
+				$query.=", ";
+			$query.="('".$data[$i]->link."')";
+		}
+		mysql_query($query)or die("Invalid query [".$query."]: " . mysql_error());
 	}
-	mysql_query($query)or die("Invalid query [".$query."]: " . mysql_error());
-	$query="SELECT link FROM `blacklist` WHERE link NOT IN (";
-	for($i=0; $i<count($data); $i++){
-		if($i!=0)
-			$query.=", ";
-		$query.="'".$data[$i]->link."'";
+	if(count($data)>0){
+		$query="SELECT link FROM `blacklist` WHERE link NOT IN (";
+		for($i=0; $i<count($data); $i++){
+			if($i!=0)
+				$query.=", ";
+			$query.="'".$data[$i]->link."'";
+		}
+		$query.=")";
+	}else{
+		$query="SELECT link FROM `blacklist` WHERE 1";
 	}
-	$query.=")";
 	$new_entries= mysql_query($query)or die("Invalid query [".$query."]: " . mysql_error());
 	$new_entries= mysql_fetch_all($new_entries);
 	return json_encode($new_entries);
