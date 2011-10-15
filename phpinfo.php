@@ -1,4 +1,5 @@
 <?php
 
-phpinfo();
+//phpinfo();
+print_r( $GLOBALS );
 ?>
