@@ -34,6 +34,7 @@ function fullSync($data){
 			$query.=", ";
 		$query.="('".$data[$i]->link."')";
 	}
+	echo $query;
 	mysql_query($query)or die("Invalid query [".$query."]: " . mysql_error());
 	$query="SELECT link FROM `blacklist` WHERE link NOT IN (";
 	for($i=0; $i<count($data); $i++){
