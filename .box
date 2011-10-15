@@ -6,5 +6,5 @@ php_max_execution_time: 30
 php_post_max_size: 8M
 php_file_uploads: Off
 php_upload_max_filesize: 2M
-php_error_reporting: 'E_ALL'
+php_error_reporting: 'E_ALL ^ E_NOTICE'
 php_display_errors: On
