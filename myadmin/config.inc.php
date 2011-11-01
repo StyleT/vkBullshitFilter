@@ -28,9 +28,9 @@ $i++;
 /* Authentication type */
 $cfg['Servers'][$i]['auth_type'] = 'cookie';
 /* Server parameters */
-$cfg['Servers'][$i]['host'] = 'localhost';
-$cfg['Servers'][$i]['connect_type'] = 'socket';
-$cfg['Servers'][$i]['socket']       = '/tmp/mysql/santos.sock';
+$cfg['Servers'][$i]['host'] = $_SERVER['MYSQL_HOST'];
+$cfg['Servers'][$i]['connect_type'] = 'tcp';
+//$cfg['Servers'][$i]['socket']       = '/tmp/mysql/santos.sock';
 $cfg['Servers'][$i]['compress'] = false;
 /* Select mysqli if your server has it */
 $cfg['Servers'][$i]['extension'] = 'mysql';
