@@ -19,8 +19,8 @@
 			
 			$query="SELECT COUNT(*) AS count FROM `blacklist`";
 			$rows_count= mysql_query($query)or die("Invalid query [".$query."]: " . mysql_error());
-			$rows_count= mysql_fetch_all($rows_count);
-			echo "Количество записей в черном списке: ".$rows_count[0]["count"];
+			$rows_count= mysql_fetch_assoc($rows_count);
+			echo "Количество записей в черном списке: ".$rows_count["count"];
 			
 			mysql_close($db);
 		?>	
